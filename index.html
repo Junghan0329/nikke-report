@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>승리의 여신: 니케 4주년 매출 순위 반등 분석 리포트</title>
+    <meta name="description" content="구글플레이 35위에서 5위까지 올라온 승리의 여신: 니케의 4주년 매출 순위 반등 원인을 공개 기사와 순위 자료로 분석한 리포트">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="35위에서 5위로 | 승리의 여신: 니케 4주년 매출 순위 반등 분석">
+    <meta property="og:description" content="서사의 매듭, 감정이 걸린 캐릭터, 낮아진 진입 문턱과 결제 장치, 미리 만든 열기. 니케 순위 반등의 원인을 공개 자료로 추적했습니다.">
+    <meta name="theme-color" content="#101216">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+    <script>document.documentElement.className += ' js';</script>
+    <style>
+        :root {
+            --bg: #e2e4e7;
+            --panel: #f4f5f6;
+            --ink: #101216;
+            --ink-2: #2b2f36;
+            --steel: #5d6672;
+            --line: #b9bec6;
+            --red: #d9232d;
+            --yellow: #f0c40f;
+            --mono: 'IBM Plex Mono', 'Pretendard', ui-monospace, monospace;
+            --sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.8;
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; }
+        ::selection { background: var(--yellow); color: var(--ink); }
+
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+        .mono { font-family: var(--mono); }
+
+        /* ---------- top bar ---------- */
+        .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--red); z-index: 70; }
+        .topbar { position: sticky; top: 0; z-index: 60; background: var(--ink); color: #fff; border-bottom: 1px solid #000; }
+        .topbar-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 52px; display: flex; align-items: center; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+        .topbar-inner::-webkit-scrollbar { display: none; }
+        .brand { font-family: var(--mono); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.08em; white-space: nowrap; margin-right: 18px; display: flex; align-items: center; gap: 10px; }
+        .brand i { width: 10px; height: 10px; background: var(--red); display: inline-block; }
+        .nav-link { font-size: 0.85rem; font-weight: 600; color: #aab0b9; text-decoration: none; white-space: nowrap; padding: 4px 11px; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active { color: #fff; border-bottom-color: var(--red); }
+
+        /* ---------- hero ---------- */
+        .hero-band { background: var(--ink); color: #fff; }
+        .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; padding: 72px 0 64px; align-items: center; }
+        .kicker { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.12em; color: #aab0b9; display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
+        .kicker::before { content: ""; width: 34px; height: 3px; background: var(--red); }
+        h1 { font-size: clamp(2.2rem, 5.4vw, 3.7rem); font-weight: 800; line-height: 1.22; letter-spacing: -0.035em; margin-bottom: 24px; }
+        h1 em { font-style: normal; color: var(--yellow); }
+        .lead { font-size: 1.08rem; color: #c9cdd3; max-width: 560px; }
+        .lead b { color: #fff; font-weight: 700; }
+        .meta { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; margin-top: 32px; font-size: 0.84rem; max-width: 540px; }
+        .meta dt { font-family: var(--mono); color: #8a919b; letter-spacing: 0.06em; font-size: 0.75rem; padding-top: 2px; }
+        .meta dd { color: #dfe2e6; }
+
+        .rankpanel { background: var(--panel); color: var(--ink); padding: 28px 30px 24px; clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px)); }
+        .rankpanel .tag-row { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--steel); display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+        .rankpanel .tag-row b { color: var(--red); font-weight: 600; }
+        .bignum { display: flex; align-items: baseline; justify-content: center; gap: 14px; padding: 18px 0 6px; font-family: var(--mono); font-weight: 600; line-height: 1; }
+        .bignum .a { font-size: 4.2rem; color: var(--steel); }
+        .bignum .arrow { font-size: 2.2rem; color: var(--red); }
+        .bignum .b { font-size: 7rem; color: var(--ink); letter-spacing: -0.04em; }
+        .bignum small { font-size: 1.2rem; margin-left: 2px; font-weight: 500; }
+        .rankcap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 0.78rem; line-height: 1.55; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 14px; margin-top: 8px; }
+        .rankcap b { display: block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--steel); font-weight: 500; }
+        .peak { margin-top: 14px; background: var(--ink); color: #fff; font-size: 0.8rem; padding: 9px 14px; display: flex; gap: 10px; align-items: center; }
+        .peak i { width: 8px; height: 8px; background: var(--yellow); flex: none; }
+
+        .hazard { height: 10px; background: repeating-linear-gradient(-45deg, var(--yellow) 0 12px, var(--ink) 12px 24px); }
+
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 36px 0 8px; }
+        .stat { background: var(--panel); padding: 18px 20px 16px; }
+        .stat .num { font-family: var(--mono); font-weight: 600; font-size: 2.1rem; line-height: 1.2; }
+        .stat .num small { font-size: 0.95rem; color: var(--steel); margin-left: 3px; font-weight: 500; }
+        .stat .lbl { font-size: 0.84rem; color: var(--ink-2); font-weight: 600; margin-top: 2px; }
+        .stat .src { font-family: var(--mono); font-size: 0.7rem; color: var(--steel); margin-top: 4px; }
+        .stat-note { font-size: 0.8rem; color: var(--steel); }
+
+        /* ---------- sections ---------- */
+        section { padding: 70px 0 6px; }
+        .sec-head { display: flex; gap: 20px; align-items: stretch; margin-bottom: 26px; }
+        .sec-head .bar { width: 6px; background: var(--red); flex: none; }
+        .sec-eyebrow { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.14em; color: var(--steel); }
+        h2 { font-size: clamp(1.6rem, 3.6vw, 2.25rem); font-weight: 800; line-height: 1.3; letter-spacing: -0.025em; }
+        h3 { font-size: 1.28rem; font-weight: 800; letter-spacing: -0.02em; margin: 34px 0 10px; }
+        p { margin-bottom: 14px; font-size: 1.03rem; color: var(--ink-2); }
+        p strong, li strong { color: var(--ink); font-weight: 800; }
+        ul.plain { padding-left: 1.2em; color: var(--ink-2); margin-bottom: 14px; }
+        ul.plain li { margin-bottom: 6px; }
+        sup.ref { font-family: var(--mono); font-size: 0.68rem; font-weight: 600; margin-left: 2px; }
+        sup.ref a { color: var(--red); text-decoration: none; }
+        sup.ref a:hover { text-decoration: underline; }
+
+        .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+        .js .reveal.in { opacity: 1; transform: none; }
+
+        /* labels */
+        .tag { display: inline-block; font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; padding: 1px 8px; margin-right: 8px; vertical-align: 2px; white-space: nowrap; border: 1px solid var(--ink); }
+        .tag.fact { background: var(--ink); color: #fff; }
+        .tag.claim { background: transparent; color: var(--ink); }
+        .tag.analysis { background: var(--red); border-color: var(--red); color: #fff; }
+        .tag.proposal { background: var(--yellow); border-color: var(--ink); color: var(--ink); }
+        .legend { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 24px 0 0; font-size: 0.84rem; color: var(--ink-2); }
+
+        /* summary */
+        .summary { background: var(--panel); border-left: 6px solid var(--ink); padding: 30px 32px 22px; }
+        .summary > p { font-size: 1.12rem; color: var(--ink); font-weight: 500; }
+        .summary ol { list-style: none; counter-reset: s; margin-top: 10px; }
+        .summary li { counter-increment: s; position: relative; padding-left: 48px; margin-bottom: 14px; color: var(--ink-2); }
+        .summary li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 0; font-family: var(--mono); font-weight: 600; font-size: 1.05rem; color: var(--red); }
+
+        .callout { background: var(--ink); color: #e9ebee; padding: 18px 22px; margin: 26px 0; font-size: 0.97rem; border-left: 6px solid var(--yellow); }
+        .callout strong { color: #fff; margin-right: 6px; }
+        .callout.light { background: var(--panel); color: var(--ink-2); border-left-color: var(--red); }
+        .callout.light strong { color: var(--ink); }
+
+        /* data note cards */
+        .twin { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0 8px; }
+        .dcard { background: var(--panel); padding: 22px 24px 14px; border-top: 4px solid var(--ink); }
+        .dcard.r { border-top-color: var(--red); }
+        .dcard .big { font-family: var(--mono); font-weight: 600; font-size: 2.6rem; line-height: 1.1; }
+        .dcard h4 { font-size: 1.02rem; font-weight: 800; margin: 6px 0 6px; }
+        .dcard p { font-size: 0.93rem; }
+
+        /* table */
+        .table-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); margin: 18px 0 26px; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 640px; }
+        th, td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+        th { font-family: var(--mono); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.08em; background: var(--ink); color: #fff; border-bottom: 0; white-space: nowrap; }
+        td { color: var(--ink-2); }
+        td:first-child { color: var(--ink); font-weight: 700; white-space: nowrap; }
+        td.n { font-family: var(--mono); font-weight: 600; color: var(--ink); white-space: nowrap; }
+        tr:last-child td { border-bottom: 0; }
+        tr.hl td { background: #fff7d1; }
+        tr.hl td:first-child { box-shadow: inset 4px 0 0 var(--red); }
+
+        /* chart */
+        .chart-box { background: var(--panel); border: 1px solid var(--line); padding: 18px 18px 8px; margin: 18px 0 8px; overflow-x: auto; }
+        .chart-box svg { display: block; width: 100%; min-width: 680px; height: auto; }
+        .chart-title { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; color: var(--steel); margin-bottom: 4px; }
+        .chart-legend { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 0.82rem; color: var(--ink-2); padding: 6px 4px 10px; }
+        .chart-legend span { display: inline-flex; align-items: center; gap: 8px; }
+        .chart-legend i { width: 22px; height: 0; border-top: 3px solid var(--ink); display: inline-block; }
+        .chart-legend i.red { border-color: var(--red); }
+        .chart-legend i.hollow { width: 10px; height: 10px; border: 2px solid var(--ink); border-radius: 50%; }
+        svg .grid { stroke: #cdd1d7; stroke-width: 1; }
+        svg .axis-t { font-family: var(--mono); font-size: 12px; fill: #5d6672; }
+        svg .xlab { font-family: var(--sans); font-size: 12.5px; fill: #2b2f36; font-weight: 600; }
+        svg .val { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+        svg .note { font-family: var(--sans); font-size: 11.5px; fill: #5d6672; }
+
+        /* pillars */
+        .pillar { display: grid; grid-template-columns: 92px 1fr; background: var(--panel); margin: 26px 0; border: 1px solid var(--line); }
+        .pillar .no { background: var(--ink); color: #fff; font-family: var(--mono); font-weight: 600; font-size: 2.4rem; display: flex; flex-direction: column; align-items: center; padding-top: 22px; }
+        .pillar .no small { font-size: 0.62rem; letter-spacing: 0.14em; color: var(--yellow); font-weight: 500; margin-top: 2px; }
+        .pillar .body { padding: 24px 28px 14px; }
+        .pillar h3 { margin: 0 0 4px; font-size: 1.42rem; }
+        .pillar .one { font-size: 0.97rem; color: var(--steel); margin-bottom: 12px; }
+        .pillar .row { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
+        .pillar .row p { margin: 0 0 6px; font-size: 0.99rem; }
+        .pillar ul.plain { font-size: 0.97rem; margin: 6px 0 8px; }
+
+        /* wave calendar */
+        .waves { list-style: none; margin: 30px 0 10px; padding-left: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(122px, 1fr)); gap: 22px 0; }
+        .waves li { position: relative; padding: 20px 12px 8px 0; font-size: 0.84rem; line-height: 1.55; color: var(--ink-2); border-top: 3px solid var(--ink); }
+        .waves li::before { content: ""; position: absolute; top: -9px; left: 0; width: 15px; height: 15px; background: var(--panel); border: 3px solid var(--ink); }
+        .waves li.big::before { background: var(--red); border-color: var(--red); }
+        .waves .d { display: block; font-family: var(--mono); font-weight: 600; font-size: 0.92rem; color: var(--ink); margin-bottom: 2px; padding-left: 0; }
+        .waves li.big .d { color: var(--red); }
+
+        /* bars */
+        .bars { background: var(--panel); border: 1px solid var(--line); padding: 20px 24px 16px; margin: 18px 0; }
+        .bar-row { display: grid; grid-template-columns: 150px 1fr 90px; align-items: center; gap: 14px; margin-bottom: 10px; font-size: 0.92rem; }
+        .bar-row .track { height: 22px; background: #d9dce1; position: relative; }
+        .bar-row .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); width: 0; transition: width 1s cubic-bezier(.2,.8,.2,1); }
+        .bar-row.red .fill { background: var(--red); }
+        .bar-row .v { font-family: var(--mono); font-weight: 600; text-align: right; }
+
+        /* two col */
+        .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .box { background: var(--panel); padding: 22px 24px 12px; border-top: 4px solid var(--ink); }
+        .box.neg { border-top-color: var(--red); }
+        .box h4 { font-size: 1.08rem; font-weight: 800; margin-bottom: 8px; }
+        .box ul { padding-left: 1.1em; font-size: 0.95rem; color: var(--ink-2); }
+        .box li { margin-bottom: 7px; }
+
+        /* verdict */
+        .meter { display: inline-flex; gap: 3px; vertical-align: middle; margin-right: 8px; }
+        .meter i { width: 12px; height: 12px; background: #c3c7ce; display: inline-block; }
+        .meter i.on { background: var(--ink); }
+        .meter.red i.on { background: var(--red); }
+
+        /* proposals */
+        .props { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 22px 0; }
+        .prop { background: var(--panel); border-top: 4px solid var(--yellow); padding: 22px 22px 8px; }
+        .prop .n { font-family: var(--mono); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--steel); }
+        .prop h4 { font-size: 1.1rem; font-weight: 800; margin: 4px 0 8px; line-height: 1.4; }
+        .prop p { font-size: 0.93rem; }
+        .prop p b { color: var(--ink); }
+
+        /* refs */
+        ol.refs { padding-left: 2em; color: var(--ink-2); font-size: 0.93rem; }
+        ol.refs li { margin-bottom: 11px; padding-left: 4px; }
+        ol.refs li::marker { font-family: var(--mono); font-weight: 600; color: var(--red); }
+        ol.refs a { font-weight: 700; color: var(--ink); text-decoration-color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+        ol.refs .note { display: block; color: var(--steel); font-size: 0.82rem; }
+
+        footer { margin-top: 70px; background: var(--ink); color: #aab0b9; padding: 30px 0 42px; font-size: 0.86rem; }
+        footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+        footer b { color: #fff; font-family: var(--mono); letter-spacing: 0.06em; font-weight: 600; }
+
+        @media (max-width: 960px) {
+            .hero { grid-template-columns: 1fr; gap: 36px; padding: 52px 0 48px; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .twin, .cols { grid-template-columns: 1fr; }
+            .props { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .wrap { padding: 0 18px; }
+            .bignum .a { font-size: 3rem; }
+            .bignum .b { font-size: 5rem; }
+            .pillar { grid-template-columns: 1fr; }
+            .pillar .no { flex-direction: row; gap: 12px; padding: 8px 20px; justify-content: flex-start; align-items: baseline; font-size: 1.7rem; }
+            .pillar .body { padding: 20px 18px 10px; }
+            .bar-row { grid-template-columns: 96px 1fr 70px; gap: 8px; font-size: 0.84rem; }
+            .summary { padding: 24px 18px 14px; }
+            .rankpanel { padding: 22px 18px 18px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .js .reveal { opacity: 1; transform: none; transition: none; }
+            .bar-row .fill { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+
+    <nav class="topbar" aria-label="목차">
+        <div class="topbar-inner">
+            <span class="brand"><i></i>NIKKE RANK REPORT</span>
+            <a class="nav-link" href="#summary">요약</a>
+            <a class="nav-link" href="#rank">순위 추이</a>
+            <a class="nav-link" href="#causes">원인 6가지</a>
+            <a class="nav-link" href="#stores">스토어·지역</a>
+            <a class="nav-link" href="#precedent">전례 비교</a>
+            <a class="nav-link" href="#risk">반론·리스크</a>
+            <a class="nav-link" href="#verdict">가설 판정</a>
+            <a class="nav-link" href="#lesson">시사점</a>
+            <a class="nav-link" href="#sources">출처</a>
+        </div>
+    </nav>
+
+    <div class="hero-band">
+        <div class="wrap">
+            <header class="hero">
+                <div>
+                    <div class="kicker">RANK ANALYSIS · 2026.11.05</div>
+                    <h1>35위에서 5위로.<br>순위를 끌어올린 건<br><em>4주년 하나</em>가 아니었다</h1>
+                    <p class="lead">승리의 여신: 니케가 업데이트 직전 구글플레이 매출 35위에서 일주일 만에 5위권까지 올라온 이유를, 보도 기사와 모바일인덱스 순위 기록으로 추적했습니다. <b>서사의 매듭, 감정이 걸린 캐릭터, 낮아진 진입 문턱과 결제 장치, 그리고 미리 만든 열기</b>가 같은 날 겹쳤다는 것이 결론입니다.</p>
+                    <dl class="meta">
+                        <dt>분석 대상</dt><dd>승리의 여신: 니케 (개발 시프트업 · 서비스 레벨 인피니트)</dd>
+                        <dt>분석 사건</dt><dd>2026.10.29 서비스 4주년 대규모 업데이트</dd>
+                        <dt>지표</dt><dd>모바일인덱스 매출 순위 (국내 기준, 일부 일본·대만)</dd>
+                        <dt>기준일</dt><dd>2026. 11. 5.</dd>
+                    </dl>
+                </div>
+                <div class="rankpanel" aria-label="순위 변화 요약">
+                    <div class="tag-row"><span>GOOGLE PLAY · KR · 매출</span><b>● CLIMB</b></div>
+                    <div class="bignum"><span class="a">35<small>위</small></span><span class="arrow">▶</span><span class="b">5<small>위</small></span></div>
+                    <div class="rankcap">
+                        <div><b>FROM · 10/29 오전</b>4주년 업데이트가 반영되기 전 모바일인덱스 캡처 정리본<sup class="ref"><a href="#ref17" style="color:#d9232d">[17]</a></sup></div>
+                        <div><b>TO · 11/5</b>모바일인덱스 집계 한국 5위 보도. 기사에 스토어 표기 없음<sup class="ref"><a href="#ref3" style="color:#d9232d">[3]</a></sup></div>
+                    </div>
+                    <div class="peak"><i></i><span>중간 최고점: <b>한국 앱스토어 1위</b>(10/29) · <b>일본 구글플레이 1위</b>(주말)</span></div>
+                </div>
+            </header>
+        </div>
+        <div class="hazard"></div>
+    </div>
+
+    <main class="wrap">
+        <div class="stats" aria-label="핵심 수치">
+            <div class="stat"><div class="num">1<small>위</small></div><div class="lbl">한국 앱스토어 매출, 업데이트 당일</div><div class="src">REF 1</div></div>
+            <div class="stat"><div class="num">227<small>만 회</small></div><div class="lbl">일본 4주년 방송 누적 조회수</div><div class="src">REF 9 · 국내 27만의 8배 이상</div></div>
+            <div class="stat"><div class="num">230<small>회</small></div><div class="lbl">4주년 기간 무료 모집 기회(최대)</div><div class="src">REF 6</div></div>
+            <div class="stat"><div class="num">+6.7<small>%</small></div><div class="lbl">국내 주간 이용자 수, 전주 대비</div><div class="src">REF 10</div></div>
+        </div>
+        <p class="stat-note">※ 모두 공개 기사에 실린 수치이며, 매출액 같은 금액 자료는 어떤 기사에도 나오지 않았습니다.</p>
+
+        <section id="summary" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">00 / EXECUTIVE SUMMARY</div><h2>한눈에 보는 결론</h2></div></div>
+            <div class="summary">
+                <p>니케의 순위 반등은 "기념일이라서 오른 것"으로 끝나지 않습니다. <strong>같은 날 겹친 네 겹의 장치</strong>가 낮은 출발선 위에서 동시에 작동한 결과라는 것이 이 리포트의 주장입니다.</p>
+                <ol>
+                    <li><strong>서사가 매듭지어졌다.</strong> 메인 스토리 49·50챕터로 2022년 출시 이후 이어진 '인류 대 퀸'의 이야기가 한 단락 끝났습니다. 끝을 보고 싶은 기존·휴면 유저에게 돌아올 날짜가 생겼습니다.<sup class="ref"><a href="#ref8">[8]</a><a href="#ref10">[10]</a></sup></li>
+                    <li><strong>감정이 걸린 캐릭터를 내놨다.</strong> 신규 필그림 '마리안: 퀸'은 튜토리얼에서 지휘관과 처음 만나는 인물이고, 성능 평가도 좋았습니다. 애착과 효율이 같은 캐릭터에서 만났습니다.<sup class="ref"><a href="#ref11">[11]</a><a href="#ref12">[12]</a></sup></li>
+                    <li><strong>들어오는 문은 넓히고 돈이 쓰이는 길은 열어 뒀다.</strong> 무료 모집 최대 230회, 라푼젤 무료 지급, 싱크로 부스트, 스토리 모드로 문턱을 낮추면서, 구매 이벤트·코스튬 픽·필그림 선택 모집은 11월 26일까지 이어지게 설계했습니다.<sup class="ref"><a href="#ref6">[6]</a></sup></li>
+                    <li><strong>열기는 미리 만들었고, 출발선은 낮았다.</strong> 5일 전 특별 방송(일본 조회수 227만), 한·미·일 옥외광고가 있었고, 직전 순위가 앱스토어 58위(한국)·37위(일본), 구글 35위(한국)로 낮아 상승폭이 크게 보였습니다.<sup class="ref"><a href="#ref7">[7]</a><a href="#ref9">[9]</a><a href="#ref17">[17]</a></sup></li>
+                </ol>
+            </div>
+
+            <div class="legend" aria-label="라벨 설명">
+                <span><span class="tag fact">FACT</span>공개 자료로 확인한 사실</span>
+                <span><span class="tag claim">CLAIM</span>기사·유저의 평가(검증 불가)</span>
+                <span><span class="tag analysis">ANALYSIS</span>작성자의 해석</span>
+                <span><span class="tag proposal">PROPOSAL</span>작성자의 제안</span>
+            </div>
+
+            <div class="callout light"><strong>작성 방식.</strong> 이 리포트는 공개 기사와 순위 자료만 근거로 썼고, 직접 플레이한 소감은 넣지 않았습니다. 기사 상당수가 회사 발표를 바탕으로 한 호평 중심 보도라서, 그 한계는 05장 '반론과 리스크'에서 따로 짚었습니다.</div>
+        </section>
+
+        <section id="rank" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">01 / RANK LOG</div><h2>35위와 5위는 정확히 무엇인가</h2></div></div>
+            <p>먼저 질문에 나온 두 숫자의 정체부터 정리합니다. 순위 기록은 스토어와 시점에 따라 값이 크게 달라서, 어느 값을 말하는지 먼저 못 박아야 비교가 됩니다.</p>
+
+            <div class="twin">
+                <div class="dcard">
+                    <span class="tag fact">FACT</span>
+                    <div class="big">35위</div>
+                    <h4>10/29 오전, 구글플레이 한국 매출</h4>
+                    <p>모바일인덱스 실시간 순위를 수기로 정리한 기록입니다. 10/1에는 15위였고, 4주년 업데이트가 반영되기 전 시점이라 사실상 <strong>이벤트 사이의 바닥</strong>에 가깝습니다. 같은 캡처에서 앱스토어는 TOP 47 안에 없었습니다.<sup class="ref"><a href="#ref17">[17]</a></sup></p>
+                </div>
+                <div class="dcard r">
+                    <span class="tag fact">FACT</span>
+                    <div class="big">5위</div>
+                    <h4>11/5, 모바일인덱스 집계 한국 매출</h4>
+                    <p>지디넷코리아 11월 5일 기사의 문장입니다. 다만 <strong>스토어가 적혀 있지 않습니다.</strong> 같은 기사에서 일본은 2위, 대만은 7위였습니다. 11/2 구글플레이 기준 한국 3위였으니, 정점에서 두 계단 내려온 값으로 읽힙니다.<sup class="ref"><a href="#ref3">[3]</a><a href="#ref2">[2]</a></sup></p>
+                </div>
+            </div>
+            <div class="callout"><strong>해석상 주의.</strong>두 값을 같은 스토어의 연속 기록으로 단정할 수는 없습니다. 35위는 구글플레이가 확실하고, 5위는 스토어 표기가 없습니다. 이 리포트는 두 값을 "35위 부근에서 5위 부근으로"라는 흐름으로만 쓰고, 스토어가 확정되는 값끼리 따로 비교했습니다.</div>
+
+            <h3>순위 추이 (한국)</h3>
+            <div class="chart-box">
+                <div class="chart-title">KOREA · 매출 순위 · 위로 갈수록 높은 순위</div>
+                <svg id="chart" viewBox="0 0 920 470" role="img" aria-label="구글플레이와 앱스토어 한국 매출 순위 추이 차트. 9월 3일 구글 16위, 앱스토어 41위에서 10월 29일 오전 구글 35위로 떨어졌다가 업데이트 후 앱스토어 1위, 구글 6위를 거쳐 11월 2일 구글 3위, 11월 5일 5위"></svg>
+                <div class="chart-legend">
+                    <span><i></i>구글플레이 한국</span>
+                    <span><i class="red"></i>앱스토어 한국</span>
+                    <span><i class="hollow"></i>속이 빈 점은 추정·표기 불명 값</span>
+                </div>
+            </div>
+            <p class="stat-note">※ 가로축은 시간 간격이 아니라 기록이 있는 시점의 순서입니다. 10/1과 10/28 사이는 기간이 길어 생략했습니다. 앱스토어 10/29 오전 값은 "TOP 47 밖"이라는 정보뿐이라 50위 자리에 빈 점으로 표시했고, 구글 11/5는 스토어 표기가 없어 빈 점입니다.</p>
+
+            <h3>시점별 순위 로그</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>시점</th><th>스토어 · 지역</th><th>순위</th><th>출처</th></tr></thead>
+                    <tbody>
+                        <tr><td>9/3</td><td>구글 한국 / 앱스토어 한국</td><td class="n">16 / 41</td><td><sup class="ref"><a href="#ref17">[17]</a></sup> 모바일인덱스 정리본</td></tr>
+                        <tr><td>10/1</td><td>구글 한국 / 앱스토어 한국</td><td class="n">15 / 45</td><td><sup class="ref"><a href="#ref17">[17]</a></sup> 같은 자료</td></tr>
+                        <tr><td>10/28 (전날)</td><td>앱스토어 한국 / 일본</td><td class="n">58 / 37</td><td><sup class="ref"><a href="#ref7">[7]</a></sup> 테크M 기사 인용. 게임톡은 일본을 41위로 적음<sup class="ref"><a href="#ref5">[5]</a></sup></td></tr>
+                        <tr><td>10/29 오전</td><td>구글 한국 / 앱스토어 한국</td><td class="n">35 / TOP47 밖</td><td><sup class="ref"><a href="#ref17">[17]</a></sup> 업데이트 반영 전 캡처</td></tr>
+                        <tr><td>10/29 약 16시</td><td>앱스토어 한국 / 일본 / 대만</td><td class="n">2 / 2 / 3</td><td><sup class="ref"><a href="#ref7">[7]</a></sup> 테크M 기사 (16:15 승인)</td></tr>
+                        <tr class="hl"><td>10/29 약 17시 40분</td><td>앱스토어 한국 / 일본 / 대만</td><td class="n">1 / 2 / 2</td><td><sup class="ref"><a href="#ref1">[1]</a></sup> 지디넷코리아 기사 (17:43 입력)</td></tr>
+                        <tr><td>10/30 오전</td><td>앱 한국 / 일본 / 대만 · 구글 한국 / 일본 / 대만</td><td class="n">1 / 4 / 1 · 6 / 4 / 6</td><td><sup class="ref"><a href="#ref8">[8]</a></sup> 테크M. 미국은 앱 19위, 구글 40위</td></tr>
+                        <tr class="hl"><td>첫 주말</td><td>구글 일본</td><td class="n">1</td><td><sup class="ref"><a href="#ref11">[11]</a></sup> 게임포커스</td></tr>
+                        <tr><td>11/2</td><td>구글 일본 / 한국 / 대만</td><td class="n">1 / 3 / 5</td><td><sup class="ref"><a href="#ref2">[2]</a><a href="#ref9">[9]</a></sup></td></tr>
+                        <tr><td>11/5</td><td>한국 / 일본 / 대만 (스토어 미표기)</td><td class="n">5 / 2 / 7</td><td><sup class="ref"><a href="#ref3">[3]</a></sup> 지디넷코리아</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><span class="tag analysis">ANALYSIS</span>업데이트 당일 한국 앱스토어는 정점(1위)에 몇 시간 만에 닿았고, 구글플레이는 6위(10/30), 3위(11/2)로 며칠에 걸쳐 올라갔습니다. 하루짜리 반짝이었다면 11/2 이후 순위가 이미 꺼졌어야 하는데, 5일째에도 한국 5위(스토어 미표기)를 지키고 있습니다.</p>
+        </section>
+
+        <section id="causes" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">02 / CAUSES</div><h2>순위를 끌어올린 원인 6가지</h2></div></div>
+            <p>아래 여섯 가지는 기사에 나온 사실에서 출발해, 각각이 순위로 이어지는 경로를 해석으로 덧붙인 것입니다. <strong>사실과 해석을 라벨로 나눠</strong> 적었고, 매출액 자료가 없어서 어느 요인이 몇 퍼센트를 설명하는지는 말할 수 없습니다.</p>
+
+            <article class="pillar">
+                <div class="no">01<small>STORY</small></div>
+                <div class="body">
+                    <h3>4년 서사의 매듭: 메인 스토리 49·50챕터</h3>
+                    <div class="one">끝이 있는 이야기는 돌아올 날짜를 만든다</div>
+                    <div class="row">
+                        <p><span class="tag fact">FACT</span>메인 스토리 49·50챕터가 10/29에 열렸습니다. 48챕터를 깨야 들어갈 수 있고, 제3차 지상 탈환전이 중심입니다. 49챕터에는 신규 보스 '노스탤지어', 50챕터와 솔로 레이드 시즌 43의 보스로는 '승리의 여신'이 나옵니다.<sup class="ref"><a href="#ref6">[6]</a></sup></p>
+                        <p><span class="tag fact">FACT</span>테크M은 이번 업데이트로 2022년 11월 정식 출시 이후 이어진 '인류와 퀸의 대결' 서사가 마무리됐다고 전했습니다.<sup class="ref"><a href="#ref8">[8]</a></sup> 4주년 기간에 메인 스토리를 모두 클리어하면 모집 티켓과 커스텀 모듈을 받는 'TRAIL MARKER'도 있어, 완주가 보상과 직접 이어집니다.<sup class="ref"><a href="#ref6">[6]</a></sup></p>
+                        <p><span class="tag claim">CLAIM</span>경향게임스는 접속이 몰려 로그인이 지연될 정도였고 완주 인증글이 이어졌다고 전했으며, 한 유저의 "소름 돋을 정도로 재밌었다"는 반응을 인용했습니다.<sup class="ref"><a href="#ref12">[12]</a></sup> 게임포커스는 일본 A-1 Pictures와 만든 애니메이션이 최종전에 걸맞은 볼거리를 줬다고 평가했습니다.<sup class="ref"><a href="#ref11">[11]</a></sup></p>
+                        <p><span class="tag analysis">ANALYSIS</span>서사 중심 게임에서 "결말을 볼 수 있는 날"은 가장 강한 복귀 사유입니다. 게임뷰는 이 업데이트가 과거 사건과 인물 관계를 다시 보여 줘 장기 유저에게는 추억과 보상을, 복귀 유저에게는 따라잡을 계기를 줬다고 분석했습니다.<sup class="ref"><a href="#ref10">[10]</a></sup> 복귀한 유저가 다음 장의 결제 장치를 만난다는 점에서 매출 순위와 연결됩니다.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="pillar">
+                <div class="no">02<small>CHARACTER</small></div>
+                <div class="body">
+                    <h3>감정과 성능이 한 캐릭터에 겹친 '마리안: 퀸'</h3>
+                    <div class="one">애착만으로도, 성능만으로도 아닌 둘 다</div>
+                    <div class="row">
+                        <p><span class="tag fact">FACT</span>마리안은 게임 초반 튜토리얼에서 지휘관과 처음 만나는 인물이고, 핵심 서사에서 중요한 역할을 맡아 왔습니다.<sup class="ref"><a href="#ref10">[10]</a><a href="#ref12">[12]</a></sup> 4주년 스토리 이벤트 'MARIA-n'은 마리안의 과거와 지휘관에 얽힌 설정을 풀 보이스로 다룹니다.<sup class="ref"><a href="#ref4">[4]</a></sup></p>
+                        <p><span class="tag fact">FACT</span>마리안: 퀸은 작열 코드 머신건 3버스트 화력형이고 10/29 점검 후부터 11/19까지 픽업됩니다. 웨딩드레스 코스튬 '라스트 어펙션'은 11/5부터 코스튬 픽으로 얻을 수 있습니다.<sup class="ref"><a href="#ref6">[6]</a></sup></p>
+                        <p><span class="tag claim">CLAIM</span>게임포커스는 현존 니케 중 최고 화력 조합이 가능하고 신규·복귀 유저에게 추천할 만하다고 썼습니다. 단일 매체의 의견이라 성능 평가의 일반화는 조심해야 합니다.<sup class="ref"><a href="#ref11">[11]</a></sup></p>
+                        <p><span class="tag analysis">ANALYSIS</span>"뽑고 싶은 이유"가 둘로 나뉩니다. 이야기를 따라온 유저는 애착으로, 효율을 보는 유저는 성능으로 같은 캐릭터를 뽑습니다. 한 상품이 두 종류의 동기를 동시에 받는 구조라서, 서사 업데이트 가운데서도 캐릭터 매출로 이어지는 통로가 넓었을 가능성이 큽니다.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="pillar">
+                <div class="no">03<small>ONBOARDING</small></div>
+                <div class="body">
+                    <h3>진입 문턱을 낮춘 무료 혜택과 편의 개선</h3>
+                    <div class="one">복귀 유저에게 "지금 돌아와도 따라갈 수 있다"를 보여 주기</div>
+                    <div class="row">
+                        <p><span class="tag fact">FACT</span>무료 혜택 구성은 아래와 같습니다.</p>
+                        <ul class="plain">
+                            <li>이벤트 보상과 무료 모집을 합쳐 <strong>최대 230회</strong> 모집 기회. 항목별 세부 내역은 방송에서 공개되지 않았습니다.<sup class="ref"><a href="#ref6">[6]</a></sup></li>
+                            <li>마리안: 퀸·홍련: 신살 필그림 선택 모집에 각각 무료 모집 21회, 신규 니케 특수 모집과 필그림 선택 모집에서 매일 1회 무료.<sup class="ref"><a href="#ref6">[6]</a><a href="#ref1">[1]</a></sup></li>
+                            <li>접속 보상으로 고급 모집 티켓 10장, 필그림 선택 모집 전용 티켓 10장.<sup class="ref"><a href="#ref4">[4]</a></sup></li>
+                            <li>신규 SSR '라푼젤: 생츄어리' 무료 지급(로그인 보상 1장 + 기념 니케 선택 상자 3개로 최대 4장).<sup class="ref"><a href="#ref6">[6]</a></sup></li>
+                            <li>성장 지원 '싱크로 부스트', 전투 없이 서사만 볼 수 있는 '스토리 모드', 복귀 이벤트 미션 개선.<sup class="ref"><a href="#ref6">[6]</a><a href="#ref12">[12]</a></sup></li>
+                        </ul>
+                        <p><span class="tag analysis">ANALYSIS</span>무료가 많은데 왜 매출이 오르는지가 핵심 질문입니다. 가설은 이렇습니다. 무료 혜택은 <strong>돌아오는 비용</strong>을 낮춰 접속자 풀을 키우고, 그렇게 들어온 유저가 04번의 결제 장치를 만납니다. 즉 무료 혜택은 매출을 깎는 장치가 아니라 결제의 입구 역할을 합니다. 지디넷코리아도 같은 방향으로 평가했습니다.<sup class="ref"><a href="#ref2">[2]</a></sup> 다만 무료 혜택이 결제 전환으로 이어진 비율을 보여 주는 자료는 없어서, 이 부분은 가설로 남깁니다.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="pillar">
+                <div class="no">04<small>MONETIZE</small></div>
+                <div class="body">
+                    <h3>4주 단위로 깔린 결제 장치와 2차 파동</h3>
+                    <div class="one">하루가 아니라 11월 26일까지 이어지는 설계</div>
+                    <div class="row">
+                        <p><span class="tag fact">FACT</span>방송에서 공개된 구매 관련 장치입니다.<sup class="ref"><a href="#ref6">[6]</a></sup></p>
+                        <ul class="plain">
+                            <li><strong>AFFECTION TRAIL</strong>(구매 이벤트, 10/29~11/26 04:59): 지정 코스튬 픽, 이벤트 패스, 한정 패키지를 사서 '애정의 자취'를 모으는 방식. 최종 보상 '영원한 맹세'에서 리틀 머메이드·크라운·리버렐리오 중 하나를 고를 수 있고 프로필 꾸미기 보상도 있습니다.</li>
+                            <li><strong>코스튬</strong>: 신규 4종(마리안: 퀸 '라스트 어펙션', 네온, 나유타, 스노우 화이트)과 한정 코스튬 6종 재출시.</li>
+                            <li><strong>필그림 선택 모집</strong>(한정): 신데렐라·그레이브·나유타 중 선택.</li>
+                            <li><strong>홍련: 신살</strong>: 11/5 05:00부터 11/26까지 픽업. 마리안과 함께 '임전' 상태를 쓰는 조합의 한 축입니다.<sup class="ref"><a href="#ref11">[11]</a></sup></li>
+                        </ul>
+                        <p><span class="tag analysis">ANALYSIS</span>구조의 포인트는 <strong>파동이 두 번</strong>이라는 점입니다. 10/29에 첫 파동(마리안, 패스, 패키지), 11/5에 두 번째 파동(홍련, 웨딩 코스튬 픽)이 오도록 일정을 나눴습니다. 지디넷코리아도 업데이트 이후 신규 캐릭터를 순차 공개해 추가 반등 여지가 남아 있다고 봤습니다.<sup class="ref"><a href="#ref2">[2]</a></sup> 11/2에 구글 3위, 11/5에도 5위를 지킨 흐름과 맞아떨어집니다. 참고로 시프트업의 2026년 2분기 매출 557억 원 가운데 432억 원이 니케에서 나와, 매출의 약 78%(필자 계산)가 이 게임에 걸려 있습니다.<sup class="ref"><a href="#ref9">[9]</a></sup></p>
+                    </div>
+
+                    <h3 style="font-size:1.05rem;margin-top:22px">수요 파동 달력</h3>
+                    <ol class="waves" aria-label="4주년 일정">
+                        <li><span class="d">10/24</span>4주년 특별 방송. 교환 코드 4종, 정보 공개</li>
+                        <li class="big"><span class="d">10/29</span>대규모 업데이트. 49·50챕터, 마리안: 퀸, 구매 이벤트 시작</li>
+                        <li><span class="d">10/30~11/1</span>용산 아이파크몰 옥외광고·스탬프 랠리</li>
+                        <li class="big"><span class="d">11/5</span>홍련: 신살 픽업, 마리안 웨딩 코스튬 픽, MARIA-n 후반부</li>
+                        <li><span class="d">11/6~11/19</span>무신사 콜라보 팝업(서울 성수)</li>
+                        <li><span class="d">11/19</span>MARIA-n·마리안/라푼젤 기간 종료</li>
+                        <li><span class="d">11/26</span>구매 이벤트·홍련 픽업·코스튬 픽 종료</li>
+                    </ol>
+                </div>
+            </article>
+
+            <article class="pillar">
+                <div class="no">05<small>HYPE</small></div>
+                <div class="body">
+                    <h3>업데이트 전부터 만든 열기와 글로벌 캠페인</h3>
+                    <div class="one">당일 순위는 당일에 만들어지지 않는다</div>
+                    <div class="row">
+                        <p><span class="tag fact">FACT</span>일본의 4주년 특별 방송(10/24) 누적 조회수는 약 227만 회로, 같은 날 국내 방송(27만 회)의 8배 이상입니다. 용산 행사 사전예약은 시작 약 3시간 만에 마감됐습니다.<sup class="ref"><a href="#ref9">[9]</a></sup></p>
+                        <div class="bars" aria-label="특별 방송 누적 조회수 비교">
+                            <div class="bar-row red"><span>일본 방송</span><span class="track"><span class="fill" data-w="100"></span></span><span class="v">약 227만</span></div>
+                            <div class="bar-row"><span>국내 방송</span><span class="track"><span class="fill" data-w="11.9"></span></span><span class="v">약 27만</span></div>
+                        </div>
+                        <p><span class="tag fact">FACT</span>업데이트 전후로 이어진 노출 채널은 다음과 같습니다.</p>
+                        <ul class="plain">
+                            <li>한국: 홍대입구역·강남대로 옥외광고(10/29~11/11), 용산 아이파크몰 'MARIAN: WHITE & BLACK IN 용산'(10/30~11/1), 무신사 콜라보 팝업(11/6~11/19).<sup class="ref"><a href="#ref6">[6]</a><a href="#ref13">[13]</a></sup></li>
+                            <li>일본: 도쿄 롯폰기역 비주얼 69장, 아키하바라·신주쿠·시부야역 광고, 카도카와 '전격마왕' 공식 코믹스 연재 예고.<sup class="ref"><a href="#ref14">[14]</a><a href="#ref9">[9]</a></sup></li>
+                            <li>미국·독일: 뉴욕 타임스퀘어 광고, LA 애니메이트 팝업(11/14까지), 뒤셀도르프 이벤트 공간 예정.<sup class="ref"><a href="#ref13">[13]</a></sup></li>
+                            <li>온라인: 치지직 드롭스(10/29~11/18), 이모티콘 24종, 글로벌 창작 대회, 홀로라이브 소속 스트리머 등의 방송.<sup class="ref"><a href="#ref6">[6]</a><a href="#ref4">[4]</a></sup></li>
+                        </ul>
+                        <p><span class="tag analysis">ANALYSIS</span>방송(10/24)부터 업데이트(10/29)까지 5일의 공백이 "무엇이 오는지 알고 기다리는 시간"이 되었습니다. 앱스토어 매출이 점검 종료 후 몇 시간 안에 1~2위에 닿은 속도는 그 대기 수요가 당일에 풀렸다는 신호로 읽히지만, 마케팅과 매출 사이의 인과는 이 자료로 확인할 수 없습니다. 옥외광고와 오프라인 행사 상당수는 업데이트 당일이거나 그 이후에 열렸기 때문에, 당일 상승의 원인이라기보다 <strong>상승을 유지하는 장치</strong>로 보는 편이 안전합니다.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="pillar">
+                <div class="no">06<small>BASELINE</small></div>
+                <div class="body">
+                    <h3>낮은 출발선이 만든 큰 상승폭</h3>
+                    <div class="one">35위에서 시작했기 때문에 점프가 커 보인다</div>
+                    <div class="row">
+                        <p><span class="tag fact">FACT</span>업데이트 전날 순위는 앱스토어 한국 58위·일본 37위였고, 10/29 오전 구글 한국은 35위였습니다.<sup class="ref"><a href="#ref7">[7]</a><a href="#ref17">[17]</a></sup> 10월 8일 업데이트에서 소개된 할로윈 스토리 이벤트(LITTLE WITCH TRICK)와 신규 니케 '벨로타: 펌킨 위치' 픽업은 모두 10/28까지였습니다.<sup class="ref"><a href="#ref16">[16]</a></sup></p>
+                        <p><span class="tag fact">FACT</span>게임뷰가 모바일인덱스를 인용해 전한 수치로는, 업데이트 이후 국내 주간 이용자 수가 전주 대비 6.7%, 주간 플레이 시간이 2.2% 늘었고, 10월 마지막 주 주간 매출 순위는 전주 대비 37계단 올랐습니다.<sup class="ref"><a href="#ref10">[10]</a></sup></p>
+                        <p><span class="tag analysis">ANALYSIS</span>이용자는 6.7% 늘었는데 순위는 수십 계단 뛰었습니다. 순위 급등은 이용자 폭증보다 <strong>결제가 한 곳에 몰린 효과</strong>가 훨씬 크다는 뜻입니다. 또 이벤트가 끝난 직후 업데이트가 왔기 때문에, 이벤트 사이에 소비를 미뤄 둔 유저가 4주년에 몰렸을 가능성도 있습니다. 이 "소비 이월"은 자료로 입증하지 못한 가설입니다.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="stores" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">03 / STORE & REGION</div><h2>왜 앱스토어가 먼저, 구글이 나중인가</h2></div></div>
+            <div class="cols">
+                <div class="box">
+                    <h4>한국: 같은 날 정점 vs 며칠에 걸친 상승</h4>
+                    <ul>
+                        <li>앱스토어는 10/29 당일 2위 → 1위, 10/30에도 1위.<sup class="ref"><a href="#ref7">[7]</a><a href="#ref1">[1]</a><a href="#ref8">[8]</a></sup></li>
+                        <li>구글플레이는 10/30 6위, 11/2 3위로 사흘에 걸쳐 올라갔습니다.<sup class="ref"><a href="#ref8">[8]</a><a href="#ref2">[2]</a></sup></li>
+                        <li>3.5주년(4월)도 같은 모양이었습니다. 4/23 앱스토어 1위, 4/27 구글 1위.<sup class="ref"><a href="#ref8">[8]</a></sup></li>
+                    </ul>
+                    <p style="font-size:.9rem"><span class="tag analysis">ANALYSIS</span>두 번 반복된 패턴이라 우연으로 보기 어렵습니다. 이유는 자료에 없어서, 스토어별 유저층과 결제 시점의 차이를 가설로만 둡니다.</p>
+                </div>
+                <div class="box neg">
+                    <h4>일본: 41위(혹은 37위)에서 구글 1위까지</h4>
+                    <ul>
+                        <li>업데이트 전날 앱스토어 37위(테크M) 혹은 41위(게임톡). 당일 2위, 10/30 앱·구글 4위.<sup class="ref"><a href="#ref7">[7]</a><a href="#ref5">[5]</a><a href="#ref8">[8]</a></sup></li>
+                        <li>첫 주말 구글플레이 1위, 11/2 구글 1위, 11/5 2위(스토어 미표기).<sup class="ref"><a href="#ref11">[11]</a><a href="#ref9">[9]</a><a href="#ref3">[3]</a></sup></li>
+                        <li>일본 방송 조회수는 국내의 8배 이상, 일본 공식 SNS는 2월에 팔로워 100만 명을 넘었습니다.<sup class="ref"><a href="#ref9">[9]</a></sup></li>
+                    </ul>
+                    <p style="font-size:.9rem"><span class="tag analysis">ANALYSIS</span>이번 상승은 한국만의 현상이 아니라 한·일·대만이 같이 움직인 사건입니다. 미국은 앱스토어 17~19위, 구글 40위로 순위권에 들어온 정도라 글로벌 전체가 뒤집힌 것은 아닙니다.<sup class="ref"><a href="#ref5">[5]</a><a href="#ref8">[8]</a></sup></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="precedent" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">04 / PRECEDENT</div><h2>이번이 처음이 아니다: 대형 업데이트마다 같은 곡선</h2></div></div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>시점</th><th>사건</th><th>기록된 순위</th><th>출처</th></tr></thead>
+                    <tbody>
+                        <tr><td>2025.10~11</td><td>3주년 'GODDESS FALL'</td><td class="n">11/6 한국 앱스토어 1위 · 일본 2위 · 북미 22위</td><td><sup class="ref"><a href="#ref15">[15]</a><a href="#ref2">[2]</a></sup> 시프트업 발표</td></tr>
+                        <tr><td>2026.4</td><td>3.5주년 업데이트</td><td class="n">4/23 한국 앱스토어 1위 → 4/27 한국 구글 1위</td><td><sup class="ref"><a href="#ref8">[8]</a><a href="#ref4">[4]</a></sup></td></tr>
+                        <tr><td>2026.7</td><td>여름 업데이트</td><td class="n">정상 등극 (구체 수치 없음)</td><td><sup class="ref"><a href="#ref4">[4]</a></sup></td></tr>
+                        <tr class="hl"><td>2026.10</td><td>4주년 업데이트</td><td class="n">10/29 한국 앱스토어 1위 · 주말 일본 구글 1위</td><td><sup class="ref"><a href="#ref1">[1]</a><a href="#ref11">[11]</a></sup></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><span class="tag analysis">ANALYSIS</span>세 번의 대형 업데이트가 모두 "이벤트 사이 순위 하락 → 업데이트 당일 앱스토어 1위 → 구글 상승"이라는 같은 곡선을 그렸습니다. 이번 35위 → 5위는 우연한 폭발이 아니라 <strong>반복 가능한 운영 패턴이 가장 크게 작동한 사례</strong>로 볼 수 있습니다. 지디넷코리아는 서사와 캐릭터 자산이 쌓인 것을 장기 흥행의 기반으로 꼽았고, 다른 서브컬처 게임들도 주년 업데이트로 반등하는 흐름이라고 정리했습니다.<sup class="ref"><a href="#ref2">[2]</a><a href="#ref3">[3]</a></sup></p>
+        </section>
+
+        <section id="risk" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">05 / COUNTER-EVIDENCE</div><h2>반론과 리스크: 이 분석이 틀릴 수 있는 곳</h2></div></div>
+            <div class="cols">
+                <div class="box neg">
+                    <h4>부정 요소</h4>
+                    <ul>
+                        <li><strong>운영 신뢰 문제.</strong> 10월 초 솔로 레이드의 부정 프로그램 사용 의심 논란이 커졌고, 시프트업의 초기 대응이 소극적이라는 비판 끝에 사건 3일 만에 총괄 디렉터가 사과했습니다.<sup class="ref"><a href="#ref18">[18]</a></sup> 다만 이 논란이 10월 하락의 원인이라는 근거는 확인하지 못했습니다.</li>
+                        <li><strong>순위 하락 신호.</strong> 11/2 구글 3위에서 11/5 5위(스토어 미표기)로 두 계단 내려왔습니다. 지디넷코리아는 순위 반등이 업데이트 직후 소비 반응일 뿐이며 이후에도 콘텐츠 소비와 이용자 활동이 유지되는지 봐야 한다고 선을 그었습니다.<sup class="ref"><a href="#ref3">[3]</a></sup></li>
+                        <li><strong>이월 소비 가능성.</strong> 원인 06의 "이벤트 사이 대기" 가설이 맞다면, 이후 몇 주는 순위가 내려갈 수 있습니다.</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h4>자료의 한계</h4>
+                    <ul>
+                        <li>호평의 상당수는 <strong>매체 기사와 익명 유저 반응</strong>이며, 회사 발표·협찬 성격이 섞였을 수 있습니다. 커뮤니티 원문은 직접 확인하지 못했습니다.</li>
+                        <li><strong>매출액이 없습니다.</strong> 순위는 상대 지표라서, 같은 1위라도 평소 1위와 이번 1위의 금액 차이는 알 수 없습니다.</li>
+                        <li><strong>기사 간 수치 불일치.</strong> 일본 전날 순위가 37위(테크M)·41위(게임톡), 미국 앱스토어가 17위·19위, 게임포커스는 업데이트일을 "11월 29일"로 적은 오기가 있습니다. 이 리포트는 출처를 병기해 둘 다 적었습니다.</li>
+                        <li><strong>35위는 순간값.</strong> 이벤트 사이 바닥의 하루 캡처라 평소 위치를 대표하지 않을 수 있습니다. 10/1 구글 15위, 9/3 16위를 같이 봐야 합니다.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="verdict" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">06 / HYPOTHESIS CHECK</div><h2>가설별 근거의 세기</h2></div></div>
+            <p>원인 후보를 하나씩 놓고, 공개 자료가 얼마나 받쳐 주는지 <strong>근거의 세기</strong>로 표시했습니다. 판정은 "매출을 직접 보여 주는 자료가 있는가"를 기준으로 했기 때문에, 직접 인과를 입증하는 가설은 하나도 없습니다.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>가설</th><th>근거</th><th>근거의 세기</th></tr></thead>
+                    <tbody>
+                        <tr><td>서사 매듭이 복귀와 결제를 끌었다</td><td>다수 기사의 호평, 로그인 지연 보도, 완주 보상 연결. 다만 호평 기사 위주이고 직접 매출 자료는 없음</td><td><span class="meter red"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>중상</td></tr>
+                        <tr><td>마리안: 퀸의 캐릭터 인기가 컸다</td><td>튜토리얼 첫 만남 설정, 성능 호평 1건, 웨딩 코스튬. 캐릭터 판매 순위 자료 없음</td><td><span class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></span>중</td></tr>
+                        <tr><td>무료 혜택이 복귀 유저를 모아 결제 입구가 됐다</td><td>혜택 내용은 확인됨. 전환율 자료 없음, 기사 평가 위주</td><td><span class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></span>중</td></tr>
+                        <tr><td>한정 상품·패스·코스튬 픽이 결제를 집중시켰다</td><td>상품 구성과 기간은 방송으로 확인. 판매 데이터 없음</td><td><span class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></span>중</td></tr>
+                        <tr><td>사전 마케팅과 글로벌 캠페인이 상승을 키웠다</td><td>일본 방송 8배, 사전예약 3시간 마감. 광고·행사 상당수는 업데이트 당일 이후 진행</td><td><span class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></span>중</td></tr>
+                        <tr><td>이벤트 종료 직후라 소비가 이월됐다</td><td>직전 순위 하락, 이용자 +6.7% 대비 순위 +37계단. 이월 자체는 입증 못 함</td><td><span class="meter"><i class="on"></i><i></i><i></i><i></i></span>약</td></tr>
+                        <tr><td>경쟁작이 빠져서 상대적으로 올랐다</td><td>10/29 정리본에서 상위권 일부 하락은 있었으나<sup class="ref"><a href="#ref17">[17]</a></sup> 하루 사이 35위 → 6위 점프를 설명하기엔 부족</td><td><span class="meter"><i class="on"></i><i></i><i></i><i></i></span>약</td></tr>
+                        <tr><td>하루짜리 일시 현상이다</td><td>반증: 11/2 구글 3위, 11/5 5위로 일주일 가까이 상위권. 다만 지속 여부는 아직 미확정</td><td><span class="meter"><i></i><i></i><i></i><i></i></span>기각(잠정)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="summary" style="margin-top:28px">
+                <p>한 줄 결론: <strong>니케는 "서사의 끝"이라는 복귀 사유와 "마리안"이라는 뽑을 이유를 같은 날 열어 놓고, 무료 혜택으로 문을 넓힌 뒤 4주간의 결제 장치로 받아냈습니다.</strong> 낮은 출발선과 미리 달군 열기가 상승폭을 키웠습니다.</p>
+            </div>
+        </section>
+
+        <section id="lesson" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">07 / TAKEAWAY</div><h2>기획 관점의 시사점</h2></div></div>
+            <p>아래는 이 사례에서 뽑은 작성자의 제안이며, 위 분석이 맞다는 전제에서 나옵니다.</p>
+            <div class="props">
+                <div class="prop">
+                    <span class="n">PROPOSAL 01</span>
+                    <h4>이야기의 '끝'은 미리 알려야 힘이 된다</h4>
+                    <p><span class="tag proposal">PROPOSAL</span>방송에서 "방주 이야기가 매듭지어진다"고 미리 밝혀 기다릴 이유를 만들었습니다. 큰 서사 이벤트는 <b>결말 시점을 사전 공개</b>하고, 완주에 보상을 붙여 복귀 동선을 하나로 모으는 편이 좋습니다.</p>
+                </div>
+                <div class="prop">
+                    <span class="n">PROPOSAL 02</span>
+                    <h4>복귀 유저의 첫 30분을 설계하라</h4>
+                    <p><span class="tag proposal">PROPOSAL</span>무료 모집, 싱크로 부스트, 스토리 모드로 "따라잡기 쉬운 길"을 만들었고, 한정 상품은 같은 기간에 함께 열었습니다. <b>무료 혜택은 결제의 입구</b>일 수 있으므로, 복귀 유저가 혜택을 받은 다음 무엇을 만나는지까지 같이 설계해야 합니다.</p>
+                </div>
+                <div class="prop">
+                    <span class="n">PROPOSAL 03</span>
+                    <h4>파동은 한 번이 아니라 두 번</h4>
+                    <p><span class="tag proposal">PROPOSAL</span>당일 한 번(10/29), 일주일 뒤 한 번(11/5)으로 신규 캐릭터를 나눠 순위가 한 번에 꺼지지 않게 했습니다. 큰 업데이트는 <b>1차와 2차 출시 간격</b>을 일정표에 넣고 측정 지표도 7일 단위로 보는 것이 좋습니다.</p>
+                </div>
+            </div>
+            <div class="callout light"><strong>다음 확인 항목.</strong> 11월 중순(MARIA-n 종료 11/19 전후)과 11/26(구매 이벤트 종료)에 순위를 다시 찍어, 이월 소비와 하락 폭을 검증하면 06장 판정표의 약한 가설 두 개(소비 이월, 경쟁작 이탈)를 가려낼 수 있습니다.</div>
+        </section>
+
+        <section id="sources" class="reveal">
+            <div class="sec-head"><div class="bar"></div><div><div class="sec-eyebrow">08 / SOURCES</div><h2>출처</h2></div></div>
+            <p style="font-size:.93rem">기사는 모두 2026년 10월~11월 보도이며, 2025년 3주년 기사 1건만 예외입니다. 접속일은 2026년 11월 5일입니다.</p>
+            <ol class="refs">
+                <li id="ref1"><a href="https://zdnet.co.kr/view/?no=20261029174322" target="_blank" rel="noopener">지디넷코리아, '승리의 여신: 니케', 4주년 업데이트 직후 국내 앱스토어 매출 1위 기록 (10.29)</a><span class="note">한국 앱스토어 1위·일본/대만 2위, 업데이트 구성, 무료 모집 지원</span></li>
+                <li id="ref2"><a href="https://zdnet.co.kr/view/?no=20261102094333" target="_blank" rel="noopener">지디넷코리아, '승리의 여신: 니케', 4주년 효과로 매출 순위 급등…장기 흥행 저력 (11.2)</a><span class="note">11/2 구글플레이 일본 1·한국 3·대만 5위, 3주년 비교, 지속성 분석</span></li>
+                <li id="ref3"><a href="https://zdnet.co.kr/view/?no=20261105094431" target="_blank" rel="noopener">지디넷코리아, 캐릭터·서사 쌓아 흥행 재점화…서브컬처 게임의 장수 전략 (11.5)</a><span class="note">11/5 한국 5위·일본 2위·대만 7위(스토어 미표기), 장수 전략 분석</span></li>
+                <li id="ref4"><a href="https://www.playforum.net/news/articleView.html?idxno=635730" target="_blank" rel="noopener">플레이포럼, 4주년에 글로벌 '들썩'...'승리의 여신: 니케' 한국·대만 매출 1위 (10.30)</a><span class="note">접속 보상, 업데이트 구성, 과거 업데이트 1위 기록</span></li>
+                <li id="ref5"><a href="https://www.gametoc.co.kr/news/articleView.html?idxno=112622" target="_blank" rel="noopener">게임톡, [니케] 스토리만 봐도 매출 오를 만하네 (10.30)</a><span class="note">10/30 국가별 순위, 일본 41위 → 4위, 미국 앱스토어 17위</span></li>
+                <li id="ref6"><a href="https://www.inven.co.kr/webzine/news/?news=322531" target="_blank" rel="noopener">인벤, [니케 4주년] 최대 230뽑기! '최종 결전' 니케 4주년 특별 방송 (10.24 방송 정리)</a><span class="note">모집·코스튬·구매 이벤트·시스템 개선·오프라인 일정</span></li>
+                <li id="ref7"><a href="https://www.techm.kr/news/articleView.html?idxno=156665" target="_blank" rel="noopener">테크M, 4주년 맞이한 '승리의 여신: 니케'...亞 시장 넘어 글로벌 흥행 다시 뛴다 (10.29)</a><span class="note">10/28 앱스토어 한국 58위·일본 37위, 당일 오후 순위</span></li>
+                <li id="ref8"><a href="https://www.techm.kr/news/articleView.html?idxno=156705" target="_blank" rel="noopener">테크M, 4주년 '승리의 여신: 니케', 한국·대만 앱스토어 매출 정상...구글서도 '두각' (10.30)</a><span class="note">10/30 국가·스토어별 순위, 3.5주년 비교, 서사 마무리</span></li>
+                <li id="ref9"><a href="https://www.techm.kr/news/articleView.html?idxno=156758" target="_blank" rel="noopener">테크M, 시프트업 '승리의 여신: 니케' 흥행 질주...日 구글 매출 1위 달성 (11.2)</a><span class="note">일본 방송 조회수, 사전예약, 2분기 매출 비중</span></li>
+                <li id="ref10"><a href="https://www.gamevu.co.kr/news/articleView.html?idxno=61965" target="_blank" rel="noopener">게임뷰, 4주년 맞은 '니케' 글로벌 매출 역주행, 비결은 탄탄한 스토리 (11.3)</a><span class="note">주간 이용자 +6.7%, 플레이 시간 +2.2%, 주간 매출 순위 +37계단(모바일인덱스 인용)</span></li>
+                <li id="ref11"><a href="https://gamefocus.co.kr/detail.php?number=180198" target="_blank" rel="noopener">게임포커스, 4주년 업데이트에 쏟아진 찬사... 韓·日 매출 1위 탈환한 '니케'의 이유 있는 역주행 (11.3)</a><span class="note">캐릭터 평가, 스토리 호평, 일본 구글 첫 주말 1위. 업데이트일 오기("11월 29일") 있음</span></li>
+                <li id="ref12"><a href="https://www.khgames.co.kr/news/articleView.html?idxno=309814" target="_blank" rel="noopener">경향게임스, '승리의 여신: 니케' 4주년, 역대급 완성도, 연출, 서사에 게이머 극찬 (10.29)</a><span class="note">접속 폭주, 유저 반응, 스토리 모드, 업데이트 약 6시간 후 순위</span></li>
+                <li id="ref13"><a href="https://www.newstap.co.kr/news/articleView.html?idxno=337012" target="_blank" rel="noopener">뉴스탭, '승리의 여신: 니케' 4주년 맞아 글로벌 캠페인 전개…한·일 앱마켓 매출 1위 (11.2)</a><span class="note">한국·미국·일본·독일 캠페인 구성</span></li>
+                <li id="ref14"><a href="https://www.inven.co.kr/webzine/news/?news=322864" target="_blank" rel="noopener">인벤, 승리의 여신: 니케, 세계 도심서 4주년 축제 (11.2)</a><span class="note">일본 롯폰기역 69장 광고 등 캠페인 세부</span></li>
+                <li id="ref15"><a href="https://www.inven.co.kr/webzine/news/?news=311086" target="_blank" rel="noopener">인벤, '승리의 여신: 니케', 업데이트로 매출 상승세 (2025.11.07)</a><span class="note">3주년 'GODDESS FALL' 이후 순위(11/6 기준, 시프트업 발표)</span></li>
+                <li id="ref16"><a href="https://www.inven.co.kr/webzine/news/?news=321911" target="_blank" rel="noopener">인벤, [정보] 승리의 여신: 니케, 메이드 신데렐라 스킨 배포와 할로윈 이벤트! (10.8)</a><span class="note">할로윈 스토리 이벤트·픽업 종료일 10/28</span></li>
+                <li id="ref17">모바일인덱스 실시간 순위(mobileindex.com/mi-chart/realtime-rank) 스크린샷 수기 정리본, 2026-09-03 · 10-01 · 10-29<span class="note">자체 정리 자료. 10/29 정리본은 순위 종류 표시가 없어 이전 기록과 같은 매출 순위로 보고 비교함</span></li>
+                <li id="ref18"><a href="https://www.mt.co.kr/tech/2026/10/03/2026100214061677677" target="_blank" rel="noopener">머니투데이, [겜플]배그 방플 논란, 니케 핵 제재 그 뒷얘기 (10.3)</a><span class="note">부정 프로그램 논란과 디렉터 사과. 제재 수위는 본문에 없음</span></li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <b>NIKKE 4TH ANNIVERSARY · RANK REPORT</b>
+            <span>공개 기사와 모바일인덱스 순위 기록 기반 분석 · 직접 플레이 소감 없음 · 기준일 2026.11.05</span>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        /* ---------- progress + nav ---------- */
+        var progress = document.getElementById('progress');
+        var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+        var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+        function onScroll() {
+            var h = document.documentElement;
+            var p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+            progress.style.width = (p * 100).toFixed(2) + '%';
+            var cur = -1;
+            secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < 140) cur = i; });
+            links.forEach(function (a, i) { a.classList.toggle('active', i === cur); });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        /* ---------- reveal + bar fill ---------- */
+        var reveals = document.querySelectorAll('.reveal');
+        function fillBars(root) {
+            root.querySelectorAll('.fill').forEach(function (f) { f.style.width = f.getAttribute('data-w') + '%'; });
+        }
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (es) {
+                es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); fillBars(e.target); io.unobserve(e.target); } });
+            }, { threshold: 0.06 });
+            reveals.forEach(function (r) { io.observe(r); });
+        } else {
+            reveals.forEach(function (r) { r.classList.add('in'); fillBars(r); });
+        }
+
+        /* ---------- rank chart ---------- */
+        var labels = ['9/3', '10/1', '10/28', '10/29 오전', '10/29 오후', '10/30', '11/2', '11/5'];
+        var sub = ['', '', '업데이트 전날', '업데이트 전', '업데이트 후', '', '', '스토어 미표기'];
+        var google = [{ v: 16 }, { v: 15 }, null, { v: 35 }, null, { v: 6, lx: 16, ly: 24, anchor: 'start' }, { v: 3 }, { v: 5, est: true }];
+        var app = [{ v: 41 }, { v: 45 }, { v: 58 }, { v: 50, est: true, txt: '47위 밖', lx: -14, ly: -10, anchor: 'end' }, { v: 1 }, { v: 1 }, null, null];
+
+        var W = 920, H = 470, L = 58, R = 34, T = 40, B = 78, MAXR = 60;
+        var pw = W - L - R, ph = H - T - B, n = labels.length;
+        function X(i) { return L + (i + 0.5) * pw / n; }
+        function Y(r) { return T + (r - 1) / (MAXR - 1) * ph; }
+        var NS = 'http://www.w3.org/2000/svg';
+        var svg = document.getElementById('chart');
+        function el(name, attrs, text) {
+            var e = document.createElementNS(NS, name);
+            for (var k in attrs) e.setAttribute(k, attrs[k]);
+            if (text != null) e.textContent = text;
+            svg.appendChild(e);
+            return e;
+        }
+
+        [1, 10, 20, 30, 40, 50, 60].forEach(function (r) {
+            el('line', { x1: L, x2: W - R, y1: Y(r), y2: Y(r), 'class': 'grid' });
+            el('text', { x: L - 10, y: Y(r) + 4, 'text-anchor': 'end', 'class': 'axis-t' }, r + '위');
+        });
+
+        /* update marker between idx 3 and 4 */
+        var ux = (X(3) + X(4)) / 2;
+        el('rect', { x: ux - 1, y: T - 8, width: 2, height: ph + 8, fill: '#d9232d' });
+        el('text', { x: ux + 8, y: T + ph - 10, 'class': 'note', style: 'fill:#d9232d;font-weight:700' }, '4주년 업데이트 10/29');
+
+        /* gap marker between idx 1 and 2 */
+        var gx = (X(1) + X(2)) / 2;
+        el('line', { x1: gx, x2: gx, y1: T, y2: T + ph, stroke: '#9aa1ab', 'stroke-width': 1, 'stroke-dasharray': '3 5' });
+        el('text', { x: gx, y: T + ph + 36, 'text-anchor': 'middle', 'class': 'note' }, '약 4주 생략');
+
+        function drawSeries(data, color, labelAbove) {
+            var pts = [];
+            data.forEach(function (d, i) { if (d) pts.push({ i: i, d: d }); });
+            for (var k = 1; k < pts.length; k++) {
+                var a = pts[k - 1], b = pts[k];
+                var dashed = (b.i - a.i > 1) || a.d.est || b.d.est;
+                var attrs = { x1: X(a.i), y1: Y(a.d.v), x2: X(b.i), y2: Y(b.d.v), stroke: color, 'stroke-width': 3, 'stroke-linecap': 'round' };
+                if (dashed) attrs['stroke-dasharray'] = '2 7';
+                el('line', attrs);
+            }
+            pts.forEach(function (p) {
+                var cx = X(p.i), cy = Y(p.d.v);
+                el('circle', { cx: cx, cy: cy, r: 6.5, fill: p.d.est ? '#f4f5f6' : color, stroke: color, 'stroke-width': 3 });
+                var txt = p.d.txt || (p.d.v + '위');
+                var tx = cx + (p.d.lx || 0);
+                var ty = cy + (p.d.ly != null ? p.d.ly : (labelAbove ? -14 : 24));
+                el('text', { x: tx, y: ty, 'text-anchor': p.d.anchor || 'middle', 'class': 'val', fill: color }, txt);
+            });
+        }
+        drawSeries(app, '#d9232d', true);
+        drawSeries(google, '#101216', false);
+
+        labels.forEach(function (lb, i) {
+            el('text', { x: X(i), y: T + ph + 20, 'text-anchor': 'middle', 'class': 'xlab' }, lb);
+            if (sub[i]) el('text', { x: X(i), y: T + ph + 52, 'text-anchor': 'middle', 'class': 'note' }, sub[i]);
+        });
+    })();
+    </script>
+</body>
+</html>
